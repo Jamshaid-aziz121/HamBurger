@@ -4,21 +4,22 @@ import { useState } from 'react';
 import HorizontalMenu from './HorizontalMenu';
 import StudentsData from './components/StudentsData';
 import { StudentTile } from './components/StudentTile';
+// import { Form } from 'react-bootstrap';
 
 function App() {
 
 
 
-  const [isOpen, setIsOpen] = useState(false); // Manages main menu
-  const [activeSubMenu, setActiveSubMenu] = useState(null); // Manages sub-menu
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const toggleSubMenu = (index) => {
     if (activeSubMenu === index) {
-      setActiveSubMenu(null); // Close if already open
+      setActiveSubMenu(null);
     } else {
-      setActiveSubMenu(index); // Open new sub-menu
+      setActiveSubMenu(index);
     }
   }
 
@@ -26,20 +27,14 @@ function App() {
     <div className="App">
       <HorizontalMenu />
       <StudentsData />
-      {/* <StudentTile /> */}
-      {/* <StudentTileView /> */}
-
       <nav className="hamburger-menu">
-        {/* Hamburger Icon */}
         <button className="menu-toggle" onClick={toggleMenu}>
           ☰
         </button>
 
-        {/* Main Menu */}
         <ul className={`menu-list ${isOpen ? 'open' : ''}`}>
           <li className="menu-item">Home</li>
 
-          {/* Menu item with sub-menu */}
           <li className="menu-item" onClick={() => toggleSubMenu(1)}>
             Services
             <ul className={`sub-menu ${activeSubMenu === 1 ? 'open' : ''}`}>
@@ -48,7 +43,6 @@ function App() {
             </ul>
           </li>
 
-          {/* Another menu item with sub-menu */}
           <li className="menu-item" onClick={() => toggleSubMenu(2)}>
             Products
             <ul className={`sub-menu ${activeSubMenu === 2 ? 'open' : ''}`}>

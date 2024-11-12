@@ -24,7 +24,6 @@ export default function StudentsData() {
         getUserData();
 
     }, []);
-    // console.log(Students)
 
 
     const handleEdit = (id, firstName, lastName, gender, age, eyeColor) => {
